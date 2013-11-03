@@ -2,7 +2,6 @@ package co.zmc.gui.net;
 
 import java.util.ArrayList;
 
-import co.zmc.gui.Log;
 import co.zmc.gui.rendering.Renderer;
 import co.zmc.gui.renderobjects.RectangleObject;
 import co.zmc.gui.renderobjects.RenderObject;
@@ -14,29 +13,7 @@ public class NetCommandHandler {
 		RenderObject obj = Renderer.getRenderObject(object);
 		
 		if (obj != null) {
-			if (command.equals("RS")) {
-				if (args.get(0).equals("W")) {
-					((RectangleObject)obj).setWidth(Integer.parseInt(args.get(1)));
-				} else if (args.get(0).equals("H")) {
-					((RectangleObject)obj).setHeight(Integer.parseInt(args.get(1)));
-				}
-			}
-			
-			if (command.equals("POS")) {
-				if (args.get(0).equals("X")) {
-					obj.setX(Integer.parseInt(args.get(1)));
-				} else if (args.get(0).equals("Y")) {
-					obj.setY(Integer.parseInt(args.get(1)));
-				}
-			}
-			
-			if (command.equals("TXT")) {
-				((TextObject)obj).setText(args.get(0));
-			}
-			
-			if (command.equals("COL")) {
-				obj.setColour(Integer.parseInt(args.get(0)));
-			}
+			obj.handleCommand(command, args);
 		}
 		
 		if (command.equals("ADD")) {
@@ -50,7 +27,6 @@ public class NetCommandHandler {
 		}
 		
 		if (command.equals("RM")) {
-			Log.info("Removing " + object);
 			Renderer.removeRenderObject(object);
 		}
 		

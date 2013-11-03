@@ -1,5 +1,7 @@
 package co.zmc.gui.renderobjects;
 
+import java.util.ArrayList;
+
 import net.minecraft.client.Minecraft;
 
 public abstract class RenderObject {
@@ -36,6 +38,20 @@ public abstract class RenderObject {
 	
 	public void setColour(int colour) {
 		this.colour = colour;
+	}
+	
+	public void handleCommand(String command, ArrayList<String> args) {
+		if (command.equals("POS")) {
+			if (args.get(0).equals("X")) {
+				setX(Integer.parseInt(args.get(1)));
+			} else if (args.get(0).equals("Y")) {
+				setY(Integer.parseInt(args.get(1)));
+			}
+		}
+		
+		if (command.equals("COL")) {
+			setColour(Integer.parseInt(args.get(0)));
+		}
 	}
 	
 	public abstract void render(Minecraft mc);
