@@ -1,0 +1,16 @@
+[
+{
+	"modid": "ZephyrGUI",
+	"name": "ZephyrGUI",
+	"description": "GUI mod for use with ZephyrSuite",
+	"version": "0.0.1",
+	"credits": "",
+	"authors": ["WinMac32","ZephyrusMC"],
+	"logoFile": "",
+	"url": "http://www.z-mc.co",
+	"updateUrl": "",
+	"parent": "",
+	"screenshots": [],
+	"dependencies": []
+}
+]
